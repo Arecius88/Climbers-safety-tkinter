@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 # Configiration
-root_window_title = "Climbers saftey"
+root_window_title = "Climbers safety"
 window_size = "250x150"
 sandbag_weight = 15
 
