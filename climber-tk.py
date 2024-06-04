@@ -7,7 +7,7 @@ root_window_title = "Climbers safety"
 window_size = "250x150"
 sandbag_weight = 15 # in kg
 
-def validate_user_input(user_input):
+def validate_user_input(user_input: str) -> int:
     try:
         value = int(user_input)
         if _validate_above_zero(value):
@@ -15,38 +15,32 @@ def validate_user_input(user_input):
     except ValueError:
         showwarning(title="Error", message="Weight must be a number")
 
-def _validate_above_zero(user_input):
+def _validate_above_zero(user_input: str)-> int:
     if user_input > 0:
         return True
     else: 
         showwarning(title="Error", message="Weight must be over 0")
 
-    
-def submit_button():
-    global amount_sandbags 
+def submit_button() -> None:
+    global amount_sandbags
     
     #Get value
-    climber_weight = climber_var.get()
-    belayer_weight = belayer_var.get()
-    climber_weight = validate_user_input(climber_weight)
-    belayer_weight = validate_user_input(belayer_weight)
+    climber_weight: str = climber_var.get()
+    belayer_weight: str = belayer_var.get()
+    climber_weight: int = validate_user_input(climber_weight)
+    belayer_weight: int = validate_user_input(belayer_weight)
     
     
     if climber_weight and belayer_weight:
-        weight_diff = climber_weight / belayer_weight
+        weight_diff: float = climber_weight / belayer_weight
 
         if weight_diff > 1.2:
-            amount_sandbags = round((climber_weight - belayer_weight) / sandbag_weight)
+            amount_sandbags: int = round((climber_weight - belayer_weight) / sandbag_weight)
             output_field.config(text=f"You need {amount_sandbags} sandbags")
         
         else: 
             showinfo(title="Number of sandbags", message="You don't need sandbags")
-    
-
-
-
-
-
+            
 # Create a Window
 root = tk.Tk()
 root.title(root_window_title)
