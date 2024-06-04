@@ -4,7 +4,7 @@ from tkinter import ttk
 # Configiration
 root_window_title = "Climbers safety"
 window_size = "250x150"
-sandbag_weight = 15
+sandbag_weight = 15 
 
 
 def submit_button():
@@ -18,7 +18,7 @@ def submit_button():
     weight_diff = climber_weight / belayer_weight
     
     if weight_diff > 1.2:
-        amount_sandbags = round((climber_weight-belayer_weight)/sandbag_weight)
+        amount_sandbags = round((climber_weight - belayer_weight) / sandbag_weight)
         output_field.config(text=f"You need {amount_sandbags} sandbags")
     
     else: 
@@ -62,6 +62,6 @@ sandbag_button.pack()
 output_field = ttk.Label(text=f"You will need this many sandbags", font=("Helvetica", 12))
 output_field.pack()
 
-
-# Run
-root.mainloop()
+if __name__=="__main__":
+    # Run
+    root.mainloop()
