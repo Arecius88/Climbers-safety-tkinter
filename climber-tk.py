@@ -35,7 +35,7 @@ def submit_button() -> None:
         weight_diff: float = climber_weight / belayer_weight
 
         if weight_diff > 1.2:
-            amount_sandbags: int = round((climber_weight - belayer_weight) / sandbag_weight)
+            amount_sandbags = round((climber_weight - belayer_weight) / sandbag_weight)
             output_field.config(text=f"You need {amount_sandbags} sandbags")
         
         else: 
